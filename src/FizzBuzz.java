@@ -6,6 +6,9 @@ class FizzBuzz
 
     // The number to check for FizzBuzz.
     int numCheck = 0;
+    char userRepeatChoice;
+    String userRepeatInput;
+    String menuRepeat = "Would you like to start again? (y or n) ";
 
     // Create scanner object for input.
     Scanner keyboard = new Scanner(System.in);
@@ -17,6 +20,10 @@ class FizzBuzz
     System.out.println("Numbers divisble by 3 are Fizz.");
     System.out.println("Numbers divisble by 5 are Buzz.");
     System.out.println("Numbers divisble by 3 and 5 are FizzBuzz.");
+    
+    do
+    {
+
     System.out.printf("Enter a number to check it's value: ");
 
     // Get the number from the Scanner object.
@@ -26,9 +33,7 @@ class FizzBuzz
     // for Fizz, Buzz, or FizzBuzz and
     // assign the results to returnValue.
     int returnValue = isBuzz(numCheck);
-    
-    // Close the Scanner object.
-    keyboard.close();
+
 
     // Determine which output to display based on the
     // returnValue from the isBuzz method.
@@ -52,6 +57,15 @@ class FizzBuzz
     {
         System.out.println(numCheck + " is not Fizz, Buzz, or FizzBuzz!");
     }
+    keyboard.nextLine(); // Consume the remaining newline.
+    System.out.printf(menuRepeat); // Ask if the user would like to start again.
+    userRepeatInput = keyboard.nextLine(); // Get the user input.
+    userRepeatChoice = userRepeatInput.charAt(0); // Get the first char.
+    } 
+    while(userRepeatChoice == 'Y' || userRepeatChoice == 'y'); // Loop if the answer is 'Y' or 'y'.
+      
+    // Close the Scanner object.
+    keyboard.close();
   }
 
     /**
@@ -63,16 +77,16 @@ class FizzBuzz
     {
       if (i % 3 == 0 && i % 5 == 0)
       {
-        return -3; // 333=FizzBuzz
+        return -3; // -3=FizzBuzz
       }
       else if (i % 3 == 0)
       {
-        return -1; // 111=Fizz
+        return -1; // -1=Fizz
       }
       else if (i % 5 == 0)
       {
-				return -2; // 222=Buzz
-			}
+        return -2; // -2=Buzz
+      }
       else
       {
         return i;
