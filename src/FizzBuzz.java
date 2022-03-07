@@ -1,8 +1,6 @@
 import java.util.Scanner;
-class FizzBuzz
-{
-  public static void main(String[] args) 
-  {
+class FizzBuzz {
+  public static void main(String[] args) {
 
     // The number to check for FizzBuzz.
     int numCheck = 0;
@@ -21,46 +19,48 @@ class FizzBuzz
     System.out.println("Numbers divisble by 5 are Buzz.");
     System.out.println("Numbers divisble by 3 and 5 are FizzBuzz.");
     
-    do
-    {
+    do {
 
-    System.out.printf("Enter a number to check it's value: ");
+      System.out.printf("Enter a number to check it's value: ");
 
-    // Get the number from the Scanner object.
-    numCheck = keyboard.nextInt();
+      
+      try {
+        // Get the number from the Scanner object.
+        numCheck = keyboard.nextInt();
+      } catch (Exception e) {
+        System.out.println("An error occurred:");
+        System.out.println(e);
+      }
+      
 
-    // Call the isBuzz method to check 
-    // for Fizz, Buzz, or FizzBuzz and
-    // assign the results to returnValue.
-    int returnValue = isBuzz(numCheck);
+      // Call the isBuzz method to check 
+      // for Fizz, Buzz, or FizzBuzz and
+      // assign the results to returnValue.
+      int returnValue = isBuzz(numCheck);
 
 
-    // Determine which output to display based on the
-    // returnValue from the isBuzz method.
-    if (returnValue == -3)
-    {
-        System.out.println(numCheck + " divided by 3 equals " + numCheck / 3);
-        System.out.println(numCheck + " divided by 5 equals " + numCheck / 5);
-        System.out.println(numCheck + " is FizzBuzz.");
-    }
-    else if (returnValue == -1)
-    {
-        System.out.println(numCheck + " divided by 3 equals " + numCheck / 3);
-        System.out.println(numCheck + " is Fizz.");
-    }
-    else if (returnValue == -2)
-    {
-        System.out.println(numCheck + " divided by 5 equals " + numCheck / 5);
-        System.out.println(numCheck + " is Buzz.");
-    }
-    else 
-    {
-        System.out.println(numCheck + " is not Fizz, Buzz, or FizzBuzz!");
-    }
-    keyboard.nextLine(); // Consume the remaining newline.
-    System.out.printf(menuRepeat); // Ask if the user would like to start again.
-    userRepeatInput = keyboard.nextLine(); // Get the user input.
-    userRepeatChoice = userRepeatInput.charAt(0); // Get the first char.
+      // Determine which output to display based on the
+      // returnValue from the isBuzz method.
+        if (returnValue == -3) {
+            System.out.println(numCheck + " divided by 3 equals " + numCheck / 3);
+            System.out.println(numCheck + " divided by 5 equals " + numCheck / 5);
+            System.out.println(numCheck + " is FizzBuzz.");
+        }
+          else if (returnValue == -1) {
+              System.out.println(numCheck + " divided by 3 equals " + numCheck / 3);
+              System.out.println(numCheck + " is Fizz."); 
+            }
+          else if (returnValue == -2) {
+              System.out.println(numCheck + " divided by 5 equals " + numCheck / 5);
+              System.out.println(numCheck + " is Buzz.");
+          }
+          else {
+              System.out.println(numCheck + " is not Fizz, Buzz, or FizzBuzz!");
+          }
+      keyboard.nextLine(); // Consume the remaining newline.
+      System.out.printf(menuRepeat); // Ask if the user would like to start again.
+      userRepeatInput = keyboard.nextLine(); // Get the user input.
+      userRepeatChoice = userRepeatInput.charAt(0); // Get the first char.
     } 
     while(userRepeatChoice == 'Y' || userRepeatChoice == 'y'); // Loop if the answer is 'Y' or 'y'.
       
